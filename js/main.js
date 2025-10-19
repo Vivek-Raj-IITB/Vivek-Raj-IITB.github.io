@@ -262,80 +262,109 @@ window.addEventListener('load', () => {
 // ==================== 
 // LeetCode Stats Fetcher
 // ==================== 
+
+// Helper function to fetch with timeout
+async function fetchWithTimeout(url, timeout = 8000) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeout);
+    
+    try {
+        const response = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        return response;
+    } catch (error) {
+        clearTimeout(timeoutId);
+        throw error;
+    }
+}
+
 async function fetchLeetCodeStats() {
     const username = 'deevek_world';
     const statsContainer = document.getElementById('leetcode-stats-mini');
     
     if (!statsContainer) return; // Element not found
     
-    // Try to fetch both profile and contest data
-    try {
-        // Fetch profile data (total solved, ranking)
-        const profileResponse = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
+    // Try multiple APIs in parallel (race to fastest response)
+    const apis = [
+        {
+            name: 'alfa-leetcode',
+            url: `https://alfa-leetcode-api.onrender.com/${username}`,
+            contestUrl: `https://alfa-leetcode-api.onrender.com/${username}/contest`
+        },
+        {
+            name: 'leetcode-stats',
+            url: `https://leetcode-stats-api.herokuapp.com/${username}`,
+            contestUrl: `https://alfa-leetcode-api.onrender.com/${username}/contest`
+        },
+        {
+            name: 'faisalshohag',
+            url: `https://leetcode-api-faisalshohag.vercel.app/${username}`,
+            contestUrl: `https://alfa-leetcode-api.onrender.com/${username}/contest`
+        }
+    ];
+    
+    // Create promises for all APIs with individual error handling
+    const apiPromises = apis.map(async (api) => {
+        const profileResponse = await fetchWithTimeout(api.url, 10000);
         
         if (!profileResponse.ok) {
-            throw new Error('Profile API failed');
+            throw new Error('API response not ok');
         }
         
         const profileData = await profileResponse.json();
         
-        // Fetch contest rating
-        const contestResponse = await fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`);
+        if (!profileData || (profileData.totalSolved === undefined && profileData.solvedProblem === undefined)) {
+            throw new Error('Invalid data');
+        }
+        
+        // Try to fetch contest data
         let contestRating = 'N/A';
         let topPercentage = 'N/A';
         
-        if (contestResponse.ok) {
-            const contestData = await contestResponse.json();
-            contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : 'N/A';
-            topPercentage = contestData.contestTopPercentage ? contestData.contestTopPercentage.toFixed(2) + '%' : 'N/A';
+        try {
+            const contestResponse = await fetchWithTimeout(api.contestUrl, 5000);
+            if (contestResponse.ok) {
+                const contestData = await contestResponse.json();
+                contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : 'N/A';
+                topPercentage = contestData.contestTopPercentage ? contestData.contestTopPercentage.toFixed(2) + '%' : 'N/A';
+            }
+        } catch (contestError) {
+            // Contest data is optional
         }
         
-        // Combine data
-        const combinedData = {
+        return {
             ...profileData,
             contestRating: contestRating,
             topPercentage: topPercentage
         };
+    });
+    
+    // Use Promise.any if available, otherwise fallback to sequential
+    try {
+        let data;
         
-        displayLeetCodeStatsMini(combinedData);
-        
-    } catch (error) {
-        // Fallback to other APIs if primary fails
-        const fallbackApis = [
-            `https://alfa-leetcode-api.onrender.com/${username}`,
-            `https://leetcode-api-faisalshohag.vercel.app/${username}`
-        ];
-        
-        for (let apiUrl of fallbackApis) {
-            try {
-                const response = await fetch(apiUrl);
-                
-                if (!response.ok) continue;
-                
-                const data = await response.json();
-                
-                if (data && (data.totalSolved !== undefined || data.solvedProblem !== undefined)) {
-                    // Try to get contest rating and top percentage
-                    try {
-                        const contestResponse = await fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`);
-                        if (contestResponse.ok) {
-                            const contestData = await contestResponse.json();
-                            data.contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : 'N/A';
-                            data.topPercentage = contestData.contestTopPercentage ? contestData.contestTopPercentage.toFixed(2) + '%' : 'N/A';
-                        }
-                    } catch (e) {
-                        data.contestRating = 'N/A';
-                        data.topPercentage = 'N/A';
-                    }
-                    
-                    displayLeetCodeStatsMini(data);
-                    return;
+        if (typeof Promise.any === 'function') {
+            // Modern browsers: try all APIs in parallel, use first success
+            data = await Promise.any(apiPromises);
+        } else {
+            // Fallback for older browsers: try sequentially
+            for (let promise of apiPromises) {
+                try {
+                    data = await promise;
+                    break;
+                } catch (e) {
+                    continue;
                 }
-            } catch (err) {
-                continue;
             }
         }
         
+        if (data) {
+            displayLeetCodeStatsMini(data);
+        } else {
+            showLeetCodeError();
+        }
+    } catch (error) {
+        // All APIs failed
         showLeetCodeError();
     }
 }
