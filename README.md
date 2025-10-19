@@ -12,7 +12,7 @@ A modern, responsive website built to showcase my professional journey, technica
 - **Technical Projects**: Druva DR Solutions, Easebuzz SDK (PyPI), Linux Peekaboo, IITB Services
 - **Education**: M.Tech from IIT Bombay, B.Tech from NIT Uttarakhand
 - **Skills**: GoLang, Python, AWS, Docker, VMware, Disaster Recovery, System Design
-- **Personal Interests**: Swimming, Gym, Beach walks
+- **Personal Interests**: Swimming, Gym, Beach walks, Reading
 - **Gallery**: Photos from my journey
 
 ## Key Achievements

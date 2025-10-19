@@ -14,6 +14,8 @@ Place your images here with the following names:
 - `grad.JPG` - Graduation photo
 - `ranikhet.jpg` - Photo from Ranikhet
 - `campus.jpg` - IIT Bombay campus photo
+- `rafting.JPG` - Rafting adventure photo
+- `keral.jpg` - Photo from Kerala
 
 ## Image Guidelines
 
