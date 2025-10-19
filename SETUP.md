@@ -25,8 +25,7 @@ Create the `assets/images/` directory and add these images:
 Open `index.html` and update these links (search for each URL):
 
 1. **LinkedIn**: 
-   - Find: `https://www.linkedin.com/in/vivek-raj`
-   - Replace with: Your actual LinkedIn URL
+   - Already updated to: `https://www.linkedin.com/in/vivek-raj-b91352142/` ✓
 
 2. **GitHub**: 
    - Find: `https://github.com/Vivek-Raj-IITB`
@@ -42,10 +41,10 @@ Open `index.html` and update these links (search for each URL):
 
 Check these URLs in `index.html` are correct:
 
-- [ ] Druva DR: `https://www.druva.com/use-cases/cloud-disaster-recovery`
-- [ ] Easebuzz SDK: `https://pypi.org/project/Easebuzz/`
-- [ ] Linux Peekaboo GitHub: Update with actual repo URL
-- [ ] IITB Services GitHub: Update with actual repo URL
+- [x] Druva DR: `https://www.druva.com/use-cases/cloud-disaster-recovery` ✓
+- [x] Easebuzz SDK: `https://pypi.org/project/Easebuzz/` ✓
+- [x] Linux Peekaboo GitHub: `https://github.com/Vivek-Raj-IITB/Linux_Peekaboo` ✓
+- [x] IITB Services GitHub: `https://github.com/Vivek-Raj-IITB/project-segmentation_faulters` ✓
 
 ### Step 5: Test Locally
 - [ ] Open `index.html` in Chrome/Firefox/Safari

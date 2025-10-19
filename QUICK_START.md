@@ -49,11 +49,11 @@ assets/
 
 Open `index.html` and find these lines (Ctrl+F to search):
 
-**Line ~55**: Update LinkedIn URL
+**Line ~55**: LinkedIn URL ✓ Already Updated
 ```html
-<a href="https://www.linkedin.com/in/vivek-raj" target="_blank">
+<a href="https://www.linkedin.com/in/vivek-raj-b91352142/" target="_blank">
 ```
-Change to your actual LinkedIn profile URL.
+Your LinkedIn profile is now linked correctly!
 
 **Line ~56**: GitHub is already set to `Vivek-Raj-IITB`
 ```html

@@ -93,8 +93,11 @@ Copy a project card in `index.html` and update:
 
 - **Current Work**: [Druva DR Solutions](https://www.druva.com/use-cases/cloud-disaster-recovery)
 - **Published SDK**: [Easebuzz on PyPI](https://pypi.org/project/Easebuzz/)
-- **GitHub**: Update with your actual GitHub profile URL
-- **LinkedIn**: Update with your actual LinkedIn profile URL
+- **GitHub**: [Vivek-Raj-IITB](https://github.com/Vivek-Raj-IITB)
+- **LinkedIn**: [Vivek Raj](https://www.linkedin.com/in/vivek-raj-b91352142/)
+- **Projects**: 
+  - [Linux Peekaboo](https://github.com/Vivek-Raj-IITB/Linux_Peekaboo)
+  - [IITB Services](https://github.com/Vivek-Raj-IITB/project-segmentation_faulters)
 
 ## 📱 Contact Information
 

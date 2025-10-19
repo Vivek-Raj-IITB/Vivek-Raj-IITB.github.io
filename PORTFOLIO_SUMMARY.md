@@ -86,8 +86,10 @@ Your portfolio includes these working links:
 **Professional**:
 - Druva DR: https://www.druva.com/use-cases/cloud-disaster-recovery
 - Easebuzz SDK: https://pypi.org/project/Easebuzz/
-- LinkedIn: (update with your URL)
+- LinkedIn: https://www.linkedin.com/in/vivek-raj-b91352142/
 - GitHub: https://github.com/Vivek-Raj-IITB
+- Linux Peekaboo: https://github.com/Vivek-Raj-IITB/Linux_Peekaboo
+- IITB Services: https://github.com/Vivek-Raj-IITB/project-segmentation_faulters
 
 **Contact**:
 - Email: vivekraj7571@gmail.com
