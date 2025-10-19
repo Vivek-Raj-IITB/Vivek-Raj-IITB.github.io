@@ -465,6 +465,7 @@ section {
     margin-bottom: 50px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .timeline-item:nth-child(even) {
@@ -481,6 +482,33 @@ section {
     border: 4px solid var(--primary-color);
     border-radius: 50%;
     z-index: 10;
+}
+
+.timeline-image {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 5;
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timeline-image-left {
+    left: calc(50% - 180px);
+    transform: translateX(-100%);
+}
+
+.timeline-image-right {
+    right: calc(50% - 180px);
+    transform: translateX(100%);
 }
 
 .timeline-content {
@@ -1084,6 +1112,10 @@ section {
     
     .timeline-dot {
         left: 30px;
+    }
+    
+    .timeline-image {
+        display: none;
     }
     
     .timeline-content {

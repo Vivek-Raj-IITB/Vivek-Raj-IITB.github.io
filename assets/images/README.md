@@ -9,13 +9,17 @@ Place your images here with the following names:
 - `linux-peekaboo.jpg` - Linux Peekaboo project image
 - `iitb-services.jpg` - IITB Services platform screenshot
 
+## Education Images
+- `iitb.jpg` - IIT Bombay logo/image
+- `nituk.jpg` - NIT Uttarakhand logo/image
+
 ## Gallery Photos
 - `Friends.JPG` - Photo with friends
 - `grad.JPG` - Graduation photo
 - `ranikhet.jpg` - Photo from Ranikhet
 - `campus.jpg` - IIT Bombay campus photo
 - `rafting.JPG` - Rafting adventure photo
-- `keral.jpg` - Photo from Kerala
+- `keral.png` - Photo from Kerala
 
 ## Image Guidelines
 
