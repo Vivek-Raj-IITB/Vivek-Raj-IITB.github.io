@@ -12,6 +12,7 @@ A modern, responsive website built to showcase my professional journey, technica
 - **Technical Projects**: Druva DR Solutions, Easebuzz SDK (PyPI), Linux Peekaboo, IITB Services
 - **Education**: M.Tech from IIT Bombay, B.Tech from NIT Uttarakhand
 - **Skills**: GoLang, Python, AWS, Docker, VMware, Disaster Recovery, System Design
+- **LeetCode Statistics**: Live stats from LeetCode profile (@deevek_world)
 - **Personal Interests**: Swimming, Gym, Beach walks, Reading
 - **Gallery**: Photos from my journey
 
@@ -33,6 +34,7 @@ Built with HTML5, CSS3, JavaScript, Font Awesome, and Google Fonts (Poppins).
 - **Published SDK**: [Easebuzz on PyPI](https://pypi.org/project/Easebuzz/)
 - **GitHub**: [Vivek-Raj-IITB](https://github.com/Vivek-Raj-IITB)
 - **LinkedIn**: [Vivek Raj](https://www.linkedin.com/in/vivek-raj-b91352142/)
+- **LeetCode**: [@deevek_world](https://leetcode.com/deevek_world)
 - **Projects**: 
   - [Linux Peekaboo](https://github.com/Vivek-Raj-IITB/Linux_Peekaboo) - Linux Kernel Modules
   - [IITB Services](https://github.com/Vivek-Raj-IITB/project-segmentation_faulters) - Campus Services Platform

@@ -260,6 +260,157 @@ window.addEventListener('load', () => {
 });
 
 // ==================== 
+// LeetCode Stats Fetcher
+// ==================== 
+async function fetchLeetCodeStats() {
+    const username = 'deevek_world';
+    const statsContainer = document.getElementById('leetcode-stats-mini');
+    
+    if (!statsContainer) return; // Element not found
+    
+    // Try to fetch both profile and contest data
+    try {
+        // Fetch profile data (total solved, ranking)
+        const profileResponse = await fetch(`https://leetcode-stats-api.herokuapp.com/${username}`);
+        
+        if (!profileResponse.ok) {
+            throw new Error('Profile API failed');
+        }
+        
+        const profileData = await profileResponse.json();
+        
+        // Fetch contest rating
+        const contestResponse = await fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`);
+        let contestRating = 'N/A';
+        let topPercentage = 'N/A';
+        
+        if (contestResponse.ok) {
+            const contestData = await contestResponse.json();
+            contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : 'N/A';
+            topPercentage = contestData.contestTopPercentage ? contestData.contestTopPercentage.toFixed(2) + '%' : 'N/A';
+        }
+        
+        // Combine data
+        const combinedData = {
+            ...profileData,
+            contestRating: contestRating,
+            topPercentage: topPercentage
+        };
+        
+        displayLeetCodeStatsMini(combinedData);
+        
+    } catch (error) {
+        // Fallback to other APIs if primary fails
+        const fallbackApis = [
+            `https://alfa-leetcode-api.onrender.com/${username}`,
+            `https://leetcode-api-faisalshohag.vercel.app/${username}`
+        ];
+        
+        for (let apiUrl of fallbackApis) {
+            try {
+                const response = await fetch(apiUrl);
+                
+                if (!response.ok) continue;
+                
+                const data = await response.json();
+                
+                if (data && (data.totalSolved !== undefined || data.solvedProblem !== undefined)) {
+                    // Try to get contest rating and top percentage
+                    try {
+                        const contestResponse = await fetch(`https://alfa-leetcode-api.onrender.com/${username}/contest`);
+                        if (contestResponse.ok) {
+                            const contestData = await contestResponse.json();
+                            data.contestRating = contestData.contestRating ? Math.round(contestData.contestRating) : 'N/A';
+                            data.topPercentage = contestData.contestTopPercentage ? contestData.contestTopPercentage.toFixed(2) + '%' : 'N/A';
+                        }
+                    } catch (e) {
+                        data.contestRating = 'N/A';
+                        data.topPercentage = 'N/A';
+                    }
+                    
+                    displayLeetCodeStatsMini(data);
+                    return;
+                }
+            } catch (err) {
+                continue;
+            }
+        }
+        
+        showLeetCodeError();
+    }
+}
+
+function displayLeetCodeStatsMini(data) {
+    const statsContainer = document.getElementById('leetcode-stats-mini');
+    
+    if (!statsContainer) return;
+    
+    // Handle different API response formats
+    const totalSolved = data.totalSolved || data.solvedProblem || 0;
+    const ranking = data.ranking || data.rank || 'N/A';
+    
+    // Get contest rating (not acceptance rate)
+    let rating = 'N/A';
+    if (data.contestRating) {
+        rating = Math.round(data.contestRating);
+    } else if (data.rating) {
+        rating = Math.round(data.rating);
+    }
+    
+    // Get top percentage
+    const topPercentage = data.topPercentage || 'N/A';
+    
+    const html = `
+        <div class="leetcode-grid-2x2">
+            <div class="leetcode-stat-box">
+                <i class="fas fa-check-circle stat-icon"></i>
+                <div class="stat-value">${totalSolved}</div>
+                <div class="stat-label">Solved</div>
+            </div>
+            <div class="leetcode-stat-box">
+                <i class="fas fa-trophy stat-icon"></i>
+                <div class="stat-value">${typeof ranking === 'number' ? '#' + ranking.toLocaleString() : ranking}</div>
+                <div class="stat-label">Rank</div>
+            </div>
+            <div class="leetcode-stat-box">
+                <i class="fas fa-star stat-icon"></i>
+                <div class="stat-value">${rating}</div>
+                <div class="stat-label">Rating</div>
+            </div>
+            <div class="leetcode-stat-box">
+                <i class="fas fa-chart-line stat-icon"></i>
+                <div class="stat-value">${topPercentage}</div>
+                <div class="stat-label">Top</div>
+            </div>
+        </div>
+        <a href="https://leetcode.com/deevek_world" target="_blank" class="leetcode-link">
+            <i class="fas fa-external-link-alt"></i> Profile
+        </a>
+    `;
+    
+    statsContainer.innerHTML = html;
+}
+
+function showLeetCodeError() {
+    const statsContainer = document.getElementById('leetcode-stats-mini');
+    if (!statsContainer) return;
+    
+    statsContainer.innerHTML = `
+        <div class="leetcode-error">
+            <small>Stats unavailable</small>
+            <a href="https://leetcode.com/deevek_world" target="_blank" class="leetcode-link">
+                <i class="fas fa-external-link-alt"></i> View Profile
+            </a>
+        </div>
+    `;
+}
+
+// Fetch LeetCode stats when page loads
+window.addEventListener('load', () => {
+    fetchLeetCodeStats();
+});
+
+// ==================== 
 // Console Message
 // ==================== 
 console.log('%c Welcome to My Portfolio! ', 'background: linear-gradient(135deg, #6366f1, #8b5cf6); color: white; font-size: 20px; padding: 10px; border-radius: 5px;');

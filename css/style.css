@@ -91,6 +91,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     font-weight: 700;
     background: var(--gradient);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-decoration: none;
@@ -425,6 +426,7 @@ section {
 .info-item i {
     font-size: 2rem;
     background: var(--gradient);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     min-width: 40px;
@@ -816,6 +818,106 @@ section {
     background: var(--gradient);
     color: var(--white);
     transform: translateY(-3px);
+}
+
+/* ==================== 
+   LeetCode Stats Mini (in Skills Section)
+   ==================== */
+.leetcode-skill-category {
+    grid-column: span 1;
+}
+
+.leetcode-stats-mini {
+    margin-top: 0.8rem;
+}
+
+.loading-spinner-mini {
+    text-align: center;
+    padding: 0.5rem;
+    color: var(--primary-color);
+}
+
+.loading-spinner-mini i {
+    font-size: 1.2rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.leetcode-grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.leetcode-stat-box {
+    background: var(--light-bg);
+    padding: 0.6rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.leetcode-stat-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.leetcode-stat-box .stat-icon {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.leetcode-stat-box .stat-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.2rem;
+}
+
+.leetcode-stat-box .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.leetcode-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    background: var(--light-bg);
+    transition: var(--transition);
+    justify-content: center;
+}
+
+.leetcode-link:hover {
+    background: var(--gradient);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.leetcode-error {
+    text-align: center;
+    padding: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.leetcode-error small {
+    display: block;
+    margin-bottom: 0.4rem;
 }
 
 /* ==================== 
