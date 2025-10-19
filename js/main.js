@@ -405,9 +405,53 @@ function showLeetCodeError() {
     `;
 }
 
-// Fetch LeetCode stats when page loads
+// ==================== 
+// Contributions Calculator
+// ==================== 
+function calculateContributions() {
+    // Calculate from January 1, 2022 to today
+    const startDate = new Date('2022-01-01');
+    const today = new Date();
+    
+    // Calculate days
+    const diffTime = Math.abs(today - startDate);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    // Calculate lines written (500 lines per day)
+    const linesWritten = diffDays * 500;
+    
+    // Calculate years (for features delivered)
+    const yearsDiff = today.getFullYear() - startDate.getFullYear();
+    const monthsDiff = today.getMonth() - startDate.getMonth();
+    const totalYears = yearsDiff + (monthsDiff / 12);
+    
+    // Calculate features delivered (2 per year)
+    const productsDelivered = Math.floor(totalYears * 2);
+    
+    // Format and display
+    const linesElement = document.getElementById('lines-written');
+    const productsElement = document.getElementById('products-delivered');
+    
+    if (linesElement) {
+        // Format lines (e.g., 750,000 or 750K)
+        if (linesWritten >= 1000000) {
+            linesElement.textContent = (linesWritten / 1000000).toFixed(1) + 'M+';
+        } else if (linesWritten >= 1000) {
+            linesElement.textContent = Math.floor(linesWritten / 1000) + 'K+';
+        } else {
+            linesElement.textContent = linesWritten.toLocaleString() + '+';
+        }
+    }
+    
+    if (productsElement) {
+        productsElement.textContent = productsDelivered + '+';
+    }
+}
+
+// Fetch LeetCode stats and calculate contributions when page loads
 window.addEventListener('load', () => {
     fetchLeetCodeStats();
+    calculateContributions();
 });
 
 // ==================== 

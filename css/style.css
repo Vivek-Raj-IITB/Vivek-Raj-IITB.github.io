@@ -921,6 +921,66 @@ section {
 }
 
 /* ==================== 
+   Contributions Stats
+   ==================== */
+.contributions-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contribution-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--light-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.contribution-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contribution-icon {
+    width: 45px;
+    height: 45px;
+    background: var(--gradient);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contribution-icon i {
+    font-size: 1.3rem;
+    color: var(--white);
+}
+
+.contribution-details {
+    flex: 1;
+}
+
+.contribution-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.2rem;
+}
+
+.contribution-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* ==================== 
    Gallery Section 
    ==================== */
 .gallery-grid {
