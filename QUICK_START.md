@@ -30,9 +30,9 @@ assets/
       ├── easebuzz-sdk.jpg        (SDK/code screenshot)
       ├── linux-peekaboo.jpg      (Terminal screenshot)
       ├── iitb-services.jpg       (Web app screenshot)
-      ├── nainital.jpg            (Travel photo)
+      ├── Friends.JPG             (Photo with friends)
+      ├── grad.JPG                (Graduation photo)
       ├── ranikhet.jpg            (Travel photo)
-      ├── goa.jpg                 (Travel photo)
       └── campus.jpg              (IIT Bombay photo)
 ```
 
@@ -103,7 +103,7 @@ Then in GitHub:
 Based on your resume, I've highlighted:
 
 1. **🏆 Quantifiable Achievements**:
-   - "2000+ VMs, 3+ PB data, 100% success rate"
+   - "100% success rate in VM migrations"
    - "15x improved restore performance"
    - "60% reduced onboarding time"
    - "50% reduction in customer escalations"

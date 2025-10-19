@@ -31,7 +31,7 @@ Vivek-Raj-IITB.github.io/
 
 **Current Role**: Software Engineer @ Druva (Aug 2024 - Present)
 - ✓ VMware Disaster Recovery Team
-- ✓ 2000+ VMs, 3+ PB data migration
+- ✓ VM migrations with 100% success rate
 - ✓ 15x restore performance improvement
 - ✓ 50% reduction in customer escalations
 
@@ -156,7 +156,7 @@ All text is in `index.html` - easy to find and edit
 
 ## 📊 What Makes This Portfolio Special
 
-1. **Quantified Achievements**: Real numbers (2000+ VMs, 60% improvement)
+1. **Quantified Achievements**: Real numbers (100% success rate, 60% improvement)
 2. **Live Proof**: Links to PyPI, Druva page
 3. **Modern Design**: Purple/blue gradient, smooth animations
 4. **Technical Depth**: GoLang, AWS, DR specialization shown

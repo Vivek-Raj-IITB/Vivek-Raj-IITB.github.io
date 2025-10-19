@@ -99,52 +99,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ==================== 
-// Contact Form Handling
+// Contact Form Removed - Replaced with Hobbies Section
 // ==================== 
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Here you can add your form submission logic
-    // For now, we'll just show an alert
-    alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon.`);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // In a real application, you would send this data to a backend service
-    // Example using fetch API:
-    /*
-    fetch('your-backend-endpoint', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            name: name,
-            email: email,
-            subject: subject,
-            message: message
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Message sent successfully!');
-        contactForm.reset();
-    })
-    .catch(error => {
-        alert('Error sending message. Please try again.');
-        console.error('Error:', error);
-    });
-    */
-});
+// Contact form has been replaced with a hobbies section showcasing
+// personal interests: Swimming, Gym, and Walking along beaches
 
 // ==================== 
 // Intersection Observer for Animations

@@ -10,9 +10,9 @@ Place your images here with the following names:
 - `iitb-services.jpg` - IITB Services platform screenshot
 
 ## Gallery Photos
-- `nainital.jpg` - Photo from Nainital
+- `Friends.JPG` - Photo with friends
+- `grad.JPG` - Graduation photo
 - `ranikhet.jpg` - Photo from Ranikhet
-- `goa.jpg` - Photo from Goa
 - `campus.jpg` - IIT Bombay campus photo
 
 ## Image Guidelines

@@ -10,11 +10,11 @@ Create the `assets/images/` directory and add these images:
 - [ ] **Easebuzz SDK** (`easebuzz-sdk.jpg`) - SDK documentation or code screenshot
 - [ ] **Linux Peekaboo** (`linux-peekaboo.jpg`) - Terminal or code screenshot
 - [ ] **IITB Services** (`iitb-services.jpg`) - Application screenshot
-- [ ] **Gallery Photos**:
-  - `nainital.jpg` - Your photo from Nainital
-  - `ranikhet.jpg` - Your photo from Ranikhet
-  - `goa.jpg` - Your photo from Goa
-  - `campus.jpg` - IIT Bombay campus photo
+- [x] **Gallery Photos**:
+  - `Friends.JPG` - Photo with friends ✓
+  - `grad.JPG` - Graduation photo ✓
+  - `ranikhet.jpg` - Photo from Ranikhet ✓
+  - `campus.jpg` - IIT Bombay campus photo ✓
 
 ### Step 2: Add Your Resume
 - [ ] Export your resume as PDF
